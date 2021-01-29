@@ -16,7 +16,9 @@ function myFunction() {
 myFunction();
 
 //🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: 
-
+// The nested function is able to access the variable "internal" due to JavaScript scope.
+// This nestedFunction will first look for the variable "internal" to access within it's own function, when it does not find it within it's own function, due to being a child of myFunction, it is able to reach outside
+// to it's parent function to access the variable it inherited.
 
 
 
@@ -28,11 +30,11 @@ myFunction();
     
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
-function summation(/*Your Code Here*/) {
-  /*Your Code Here*/
+function summation(num){
+  return num * (num + 1) / 2;
+}
 
-  }
- 
+// arrow function version - summation = (num) => num * (num + 1) / 2;
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
 // Given this zoo data from around the United States, follow the instructions below. Use the specific array methods in the requests below to solve the problems.
@@ -56,9 +58,13 @@ const zooAnimals = [
   displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
 
-  function animalNames(/*Your Code Here*/){
-    /*Your Code Here*/
-  }
+  function animalNames(names){
+    names = [];
+      zooAnimals.map(item => {names.push(`name: ${item.animal_name}, scientific: ${item.scientific_name}`)
+    })
+    return names;
+    }
+  
   
 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
@@ -67,9 +73,12 @@ const zooAnimals = [
   For example: ['jackal, asiatic', .....]
   */
 
-  function lowerCaseNames(/*Your Code Here*/){
-    /*Your Code Here*/
-  }
+  function lowerCaseNames(){
+     lowCnames = [];
+      zooAnimals.map(item => {lowCnames.push(item.animal_name.toLowerCase())
+    })
+    return lowCnames;
+    }
   
   
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
@@ -77,8 +86,10 @@ const zooAnimals = [
   Using lowPopulationAnimals use .filter() to create a new array of objects which contains only the animals with a population of less than 5.
   */
 
-  function lowPopulationAnimals(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowPopulationAnimals(){
+    const lowPop = zooAnimals.filter(zooAnimal => zooAnimal.population < 5)
+    // console.log(lowPop);
+    return lowPop;
   }
   
 
